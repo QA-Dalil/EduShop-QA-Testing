@@ -1,0 +1,403 @@
+﻿Summary,Issue key,Issue id,Issue Type,Status,Project key,Project name,Project type,Project lead,Project lead id,Project description,Priority,Resolution,Assignee,Assignee Id,Reporter,Reporter Id,Creator,Creator Id,Created,Updated,Last Viewed,Resolved,Due date,Votes,Labels,Labels,Description,Environment,Watchers,Watchers Id,Original estimate,Remaining Estimate,Time Spent,Work Ratio,Σ Original Estimate,Σ Remaining Estimate,Σ Time Spent,Security Level,Inward issue link (Relates),Outward issue link (Relates),Custom field (Development),Custom field (Issue Type),Custom field (Issue color),Custom field (Rank),Custom field (Severity),Custom field (Severity),Custom field (Start date),Custom field (Story point estimate),Custom field (Team),Custom field (Test Status),Custom field (Vulnerability),Parent,Parent key,Parent summary,Status category,Status category changed
+Revenue Report Option Is Missing from Admin Navigation,ED-131,10334,Bug,To Do,ED,EduShop-QA-Rahaf AlQura'an,software,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,,Medium,,,,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,08/Oct/26 2:52 AM,08/Oct/26 10:11 PM,08/Oct/26 10:12 PM,,,0,MANUAL,,"The Admin area does not display a Revenue Report link or tab, preventing the Admin from accessing the report through the interface.
+
+*Steps to Reproduce*
+
+# Sign in using valid Admin credentials.
+# Open the Admin area.
+# Inspect the Admin menu and dashboard tabs.
+# Observe that no Revenue Report option is available.
+
+*Expected Result*
+A visible Revenue Report link or tab should be available and open the report when selected.
+
+*Actual Result*
+No Revenue Report option is displayed, so the report cannot be accessed through Admin navigation.",,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,,,,,,,,,EQ-37,,{},Front End,,0|i0010o:,,High,,,,,,10211,ED-8,EPIC-08 — Admin Dashboard & Reporting,To Do,08/Oct/26 2:52 AM
+Active low-stock products are not consistently flagged,ED-130,10333,Bug,To Do,ED,EduShop-QA-Rahaf AlQura'an,software,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,,Medium,,,,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,08/Oct/26 2:31 AM,08/Oct/26 10:11 PM,,,,0,MANUAL,,"Verify that all active products with a stock quantity of 10 units or fewer are correctly identified and visually flagged as Low Stock.
+
+Steps to Reproduce:
+
+# Sign in using the Admin account.
+# Open the Products page.
+# Identify active products with stock quantities of 10 or fewer.
+
+Check whether each qualifying product is visually flagged as Low Stock.
+
+
+Expected Result:
+All active products with stock quantities of 10 or fewer should be clearly flagged as Low Stock.
+
+Actual Result:
+Some active products with stock quantities of 10 or fewer are not visually flagged as Low Stock, while other qualifying products are highlighted.
+
+",,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,,,,,,,,,EQ-36,,{},Front End,,0|i0010l:,,Medium,,,,,,10211,ED-8,EPIC-08 — Admin Dashboard & Reporting,To Do,08/Oct/26 2:31 AM
+Product edit allows negative stock values to be saved,ED-127,10330,Bug,To Do,ED,EduShop-QA-Rahaf AlQura'an,software,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,,Medium,,,,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,06/Oct/26 1:59 AM,08/Oct/26 10:03 PM,06/Oct/26 3:00 PM,,,0,MANUAL,,"*Description*
+
+The product edit form/API accepts invalid stock values that should be rejected.
+
+*Steps to Reproduce*
+
+# Sign in as Admin.
+# Open an existing product for editing.
+# Set Stock to -1.
+# Submit the update.
+
+*Expected Result*
+
+The update is rejected with a validation error and the negative stock value is not saved.
+
+*Actual Result*
+
+The update is accepted and the negative stock value is saved.",,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,,,,,,,,,,ED-20,{},Front End,,0|i000w3:,,High,,,,,,10205,ED-2,EPIC-02 — Product Catalog & Discovery,To Do,06/Oct/26 1:59 AM
+Admin cannot edit or rename existing categories,ED-126,10329,Bug,To Do,ED,EduShop-QA-Rahaf AlQura'an,software,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,,Medium,,,,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,06/Oct/26 1:59 AM,08/Oct/26 10:04 PM,08/Oct/26 9:54 PM,,,0,MANUAL,,"*Description*
+
+An Admin cannot edit or rename an existing category.
+
+*Steps to Reproduce*
+
+# Sign in as Admin.
+# Open the category management page.
+# Select an existing category.
+# Try to edit or rename it.
+# Save the changes.
+
+*Expected Result*
+
+The Admin can edit or rename the category and the changes are saved successfully.
+
+*Actual Result*
+
+The edit or rename operation cannot be completed.",,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,,,,,,,,,,ED-23,{},Front End,,0|i000wt:,,High,,,,,,10206,ED-3,EPIC-03 — Category Management,To Do,06/Oct/26 1:59 AM
+Protected resources do not return proper 401/403 responses for unauthenticated and unauthorized users,ED-125,10328,Bug,To Do,ED,EduShop-QA-Rahaf AlQura'an,software,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,,Medium,,,,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,06/Oct/26 1:59 AM,08/Oct/26 11:16 PM,08/Oct/26 11:15 PM,,,0,MANUAL,,"Verify that protected resources reject unauthenticated and unauthorized access using the correct HTTP status codes.
+
+Precondition:
+Protected Admin resources are available.
+
+Steps to Reproduce:
+
+Sign out and attempt to access a protected Orders/Admin resource.
+
+Inspect the request in the browser Network tab.
+
+Sign in as a Customer.
+
+Attempt to access an Admin-only operation.
+
+Inspect the corresponding request in the Network tab.
+
+Expected Result:
+
+Unauthenticated access should return 401 Unauthorized.
+
+Authenticated non-admin access should return 403 Forbidden.
+
+Protected requests must not return 200 OK with empty, partial, or fallback content.
+
+Actual Result:
+The unauthenticated protected-page request returned 200 OK instead of 401 Unauthorized.
+The Customer attempt to access an Admin-only operation was also not rejected with the required 403 Forbidden.",,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,,,,,,,,,EQ-39,,{},Front End,,0|i000wr:,,Medium,,,,,,10206,ED-3,EPIC-03 — Category Management,To Do,06/Oct/26 1:59 AM
+Admin Dashboard Displays Incorrect and Inconsistent Summary and Report Data,ED-110,10313,Bug,To Do,ED,EduShop-QA-Rahaf AlQura'an,software,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,,High,,,,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,02/Oct/26 1:17 AM,08/Oct/26 10:04 PM,08/Oct/26 10:08 PM,,,0,MANUAL,,"The Admin Dashboard does not display several required statistics and report sections correctly. Summary figures are incomplete or inaccurate, the pending-order count does not match the actual order data, low-stock totals exclude eligible products, Recent Orders are not shown in the correct order, Top Products do not reflect the correct best-selling products, and the dashboard values remain inconsistent after refresh.
+
+*Steps to Reproduce*
+
+# Sign in using a valid *Admin* account.
+# Open the *Admin Dashboard*.
+# Inspect the summary cards for products, customers, orders, revenue, and pending orders.
+# Compare the displayed pending-order count with the actual orders having *Pending* status.
+# Inspect the low-stock information for products with stock quantities of {{10}} or fewer.
+# Inspect the *Recent Orders* section.
+# Inspect the *Top Products* section.
+# Refresh the dashboard and compare the displayed figures again.
+
+*Expected Result*
+The Admin Dashboard should display all required summary figures accurately, show a pending-order total consistent with the actual order data, include all products with stock quantities of 10 or fewer in the low-stock total, display up to 10 of the most recent orders in the correct order, show up to five correct best-selling products, and retain consistent figures after refresh.
+
+*Actual Result*
+Not all required summary figures were displayed correctly. The pending-order total was inconsistent with the order data, the low-stock total excluded some products with stock quantities of 10 or fewer, the Recent Orders section did not display the latest orders in the correct order, the Top Products section did not show the correct best-selling products, and the dashboard figures remained inconsistent after refresh.",,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,,,,,,,,,EQ-36,,{},API,,0|i0010r:,,High,,,,,,10211,ED-8,EPIC-08 — Admin Dashboard & Reporting,To Do,02/Oct/26 1:17 AM
+Validation and Error Messages Are Not Displayed Clearly for Invalid User Actions,ED-108,10311,Bug,To Do,ED,EduShop-QA-Rahaf AlQura'an,software,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,,High,,,,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,02/Oct/26 1:06 AM,08/Oct/26 4:51 PM,08/Oct/26 11:06 PM,,,0,MANUAL,,"*Description*
+
+The application does not provide clear and consistent validation or error feedback for several invalid user actions. Required-field messages are not displayed clearly, invalid input messages do not explain how to correct the value, missing records do not show a clear not-found message, stock-related failures lack clear feedback, and duplicate review attempts are not explained properly.
+
+*Steps to Reproduce*
+
+# Open a form containing required fields.
+# Submit the form with required fields left empty.
+# Enter an invalid value and submit again.
+# Attempt to open a product or order that no longer exists.
+# Attempt to add or purchase a quantity greater than the available stock.
+# Attempt to submit a second review for a product already reviewed by the same Customer.
+# Observe the validation and error messages displayed for each action.
+
+*Expected Result*
+
+The application should display clear and specific validation or error messages for invalid actions, explaining why the action was rejected and how the user can correct the problem where applicable.
+
+*Actual Result*
+
+Required-field validation messages were not displayed clearly, and invalid-value messages did not explain how to correct the input. Missing records did not display a clear not-found message. Stock-related failures lacked clear feedback, and duplicate review attempts did not display a clear message explaining the restriction.",,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,,,,,,,,,EQ-41,,{},Front End,,0|i00113:,,High,,,,,,10212,ED-9,EPIC-09 — Cross-Cutting Platform Rules,To Do,02/Oct/26 1:06 AM
+No confirmation message is displayed after removing a product from the wishlist,ED-103,10306,Bug,To Do,ED,EduShop-QA-Rahaf AlQura'an,software,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,,High,,,,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,02/Oct/26 12:52 AM,06/Oct/26 2:50 PM,06/Oct/26 2:49 PM,,,0,FRONT-END,MANUAL,"*Description*
+
+After removing a product from the wishlist, no confirmation message is displayed.
+
+*Steps to Reproduce*
+
+# Sign in as a Customer.
+# Add a product to the wishlist.
+# Open the wishlist.
+# Remove the product.
+
+*Expected Result*
+
+A clear confirmation message confirms that the product was removed successfully.
+
+*Actual Result*
+
+The product is removed, but no confirmation message is displayed.",,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,,,,,,,,,EQ-40,EQ-35,{},Front End,,0|i000zz:,,Medium,,,,,,10210,ED-7,EPIC-07 — Wishlist,To Do,02/Oct/26 12:52 AM
+Wishlist header count does not update immediately after adding a product,ED-102,10305,Bug,To Do,ED,EduShop-QA-Rahaf AlQura'an,software,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,,High,,,,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,02/Oct/26 12:50 AM,06/Oct/26 2:49 PM,06/Oct/26 2:49 PM,,,0,FRONT-END,MANUAL,"*Description*
+
+The wishlist count displayed in the header does not update immediately after adding a product to the wishlist.
+
+*Steps to Reproduce*
+
+# Sign in as a Customer.
+# Open any product.
+# Add the product to the wishlist.
+# Check the wishlist count in the header.
+
+*Expected Result*
+
+The header wishlist count increases immediately after the product is added.
+
+*Actual Result*
+
+The product is added, but the header count remains unchanged until the page is refreshed or revisited.",,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,,,,,,,,,EQ-35,EQ-34,{},Front End,,0|i000zr:,,Medium,,,,,,10210,ED-7,EPIC-07 — Wishlist,To Do,02/Oct/26 12:50 AM
+Product Wishlist State Is Not Synchronized Between Product Listing and Product Detail Pages,ED-101,10304,Bug,To Do,ED,EduShop-QA-Rahaf AlQura'an,software,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,,High,,,,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,02/Oct/26 12:47 AM,06/Oct/26 2:49 PM,08/Oct/26 10:05 PM,,,0,MANUAL,,"After a product is added to the wishlist from the product listing page, the product detail page does not correctly reflect that the same product is already wishlisted.
+
+*Steps to Reproduce*
+
+# Open the product listing page.
+# Add a target product to the wishlist.
+# Open the product detail page for the same product.
+# Inspect the product’s wishlist state.
+
+*Expected Result*
+The product detail page should immediately show the product as already added to the wishlist.
+
+*Actual Result*
+The product was not correctly shown as already wishlisted on the product detail page.",,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,,,,,,,,,EQ-34,,{},Front End,,0|i000zj:,,High,,,,,,10210,ED-7,EPIC-07 — Wishlist,To Do,02/Oct/26 12:47 AM
+Review author cannot delete their own review,ED-100,10303,Bug,To Do,ED,EduShop-QA-Rahaf AlQura'an,software,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,,High,,,,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,02/Oct/26 12:45 AM,08/Oct/26 10:01 PM,08/Oct/26 10:01 PM,,,0,FRONT-END,MANUAL,"A review author cannot delete their own review from the product review interface.
+
+*Steps to Reproduce*
+
+# Sign in as a Customer.
+# Submit a review for a product.
+# Open the review actions.
+# Attempt to delete the review.
+
+*Expected Result*
+
+The review author can delete their own review and receives confirmation.
+
+*Actual Result*
+
+The review author cannot complete the delete action.",,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,,,,,,,,,EQ-33,EQ-33,{},Front End,,0|i000zb:,,High,,,,,,10209,ED-6,EPIC-06 — Product Reviews & Ratings,To Do,02/Oct/26 12:45 AM
+No eligibility message is displayed when an ineligible customer attempts to submit a review,ED-99,10302,Bug,To Do,ED,EduShop-QA-Rahaf AlQura'an,software,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,,High,,,,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,02/Oct/26 12:43 AM,06/Oct/26 2:48 PM,08/Oct/26 10:00 PM,,,0,FRONT-END,MANUAL,"*Description*
+
+An ineligible customer can attempt to submit a review without receiving a clear eligibility message.
+
+*Steps to Reproduce*
+
+# Sign in as a Customer who has not purchased or received the product.
+# Open the product review form.
+# Attempt to submit a review.
+
+*Expected Result*
+
+The review is rejected and a clear message explains that the customer is not eligible to review the product.
+
+*Actual Result*
+
+The review is rejected without a clear eligibility message.",,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,,,,,,,,,EQ-32,EQ-32,{},Front End,,0|i000z3:,,Medium,,,,,,10209,ED-6,EPIC-06 — Product Reviews & Ratings,To Do,02/Oct/26 12:43 AM
+Order status is saved as Shipped instead of Processing for orders with four or more product lines,ED-97,10300,Bug,To Do,ED,EduShop-QA-Rahaf AlQura'an,software,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,,High,,,,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,02/Oct/26 12:38 AM,08/Oct/26 11:19 PM,08/Oct/26 11:25 PM,,,0,,,"Verify that an Admin can update a Pending order containing four or more product lines to Processing and that the selected status is saved correctly.
+
+Precondition:
+
+Admin is signed in.
+
+A Pending order containing at least four different product lines exists.
+
+Steps to Reproduce:
+
+Open the Admin Orders section.
+
+Locate a Pending order containing four or more product lines.
+
+Open the order details.
+
+Open the status selection control.
+
+Select Processing.
+
+Save the status update.
+
+Refresh the order details page.
+
+Expected Result:
+The order status should be saved as Processing and remain Processing after refreshing the page.
+
+Actual Result:
+After selecting Processing and saving the order, the status is saved as Shipped instead. After refreshing the page, the order continues to display Shipped, confirming that the incorrect status was persisted.",,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,,,,,,,,,EQ-31,,{},Front End,,0|i000yn:,,High,,,,,,10208,ED-5,EPIC-05 — Checkout & Orders,To Do,02/Oct/26 12:38 AM
+Placed Order Total Does Not Match the Correct Calculated Cart Total,ED-96,10299,Bug,To Do,ED,EduShop-QA-Rahaf AlQura'an,software,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,,High,,,,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,02/Oct/26 12:36 AM,06/Oct/26 2:19 AM,08/Oct/26 1:36 AM,,,0,MANUAL,,"After an order is placed successfully, the application does not complete all required post-order processing correctly. The saved order total does not exactly match the independently calculated total, product stock is not decremented according to the ordered quantities, and the Customer’s cart is not cleared after the successful order.
+
+*Steps to Reproduce*
+
+# Add products to the cart, including at least one product line with a quantity greater than {{10}}.
+# Independently calculate the expected order total using:
+{{Discounted Unit Price × Quantity}} for each cart line.
+# Record the current stock quantity of each ordered product.
+# Enter a valid shipping address and payment method.
+# Place the order successfully.
+# Open the placed order and compare its saved total with the independently calculated total.
+# Check the stock quantities of the ordered products.
+# Open the Customer’s cart.
+
+*Expected Result*
+After a successful order, the saved order total should exactly match the calculated total, each ordered product’s stock should be reduced by the ordered quantity, and the Customer’s cart should be empty.
+
+*Actual Result*
+The saved order total did not exactly match the independently calculated total, product stock was not decremented correctly according to the ordered quantities, and the Customer’s cart remained non-empty after the successful order.",,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,,,,,,,,,EQ-30,,{},Front End,,0|i000yf:,,High,,,,,,10208,ED-5,EPIC-05 — Checkout & Orders,To Do,02/Oct/26 12:36 AM
+"Payment-Specific Fields Are Not Displayed Correctly for Card, PayPal, and Bank Transfer",ED-95,10298,Bug,To Do,ED,EduShop-QA-Rahaf AlQura'an,software,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,,High,,,,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,02/Oct/26 12:33 AM,06/Oct/26 2:18 AM,06/Oct/26 2:18 AM,,,0,MANUAL,,"
+The checkout form does not display the required payment-specific fields or guidance when Card, PayPal, or Bank Transfer is selected. Cash on Delivery behaves correctly and does not display unnecessary payment-detail fields.
+
+*Steps to Reproduce*
+
+# Open the checkout page.
+# Select *Card* as the payment method.
+# Verify whether the card number, expiry date, and CVV fields are displayed.
+# Select *PayPal* as the payment method.
+# Verify whether PayPal-specific guidance or redirect information is displayed.
+# Select *Bank Transfer* as the payment method.
+# Verify whether the required bank account or reference details are displayed.
+
+*Expected Result*
+Each payment method should display the appropriate payment-specific information:
+
+* *Card:* Card number, expiry date, and CVV fields should be displayed.
+* *PayPal:* PayPal-specific guidance or redirect information should be displayed instead of card fields.
+* *Bank Transfer:* Required bank account or payment-reference details should be displayed.
+
+*Actual Result*
+The required payment-specific information was not displayed correctly for Card, PayPal, and Bank Transfer. Card payment fields were not shown correctly, PayPal-specific guidance was not properly presented, and the required bank-transfer account or reference details were not displayed.",,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,,,,,,,,,EQ-29,,{},Front End,,0|i000y7:,,High,,,,,,10208,ED-5,EPIC-05 — Checkout & Orders,To Do,02/Oct/26 12:33 AM
+Cart Badge Does Not Display the Correct Saved-Cart Quantity After Login,ED-94,10297,Bug,To Do,ED,EduShop-QA-Rahaf AlQura'an,software,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,,High,,,,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,02/Oct/26 12:30 AM,06/Oct/26 2:17 AM,06/Oct/26 2:16 AM,,,0,MANUAL,,"The cart badge does not correctly initialize with the Customer’s saved-cart quantity after login. The Customer has five units saved in the cart, but the header cart badge does not display the correct total quantity after the session loads and remains incorrect after refreshing the page.
+
+*Steps to Reproduce*
+
+# Prepare a Customer account with a saved cart containing a total quantity of {{5}} units.
+# Sign in using the Customer account.
+# Inspect the cart badge in the storefront header before adding, updating, or removing any item.
+# Refresh the page and inspect the cart badge again.
+
+*Expected Result*
+The cart badge should immediately display the Customer’s total saved-cart quantity of five units after login and should remain correct after refreshing the page.
+
+*Actual Result*
+The cart badge did not display the correct saved-cart quantity after login and remained incorrect after the page was refreshed.",,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,,,,,,,,,EQ-28,,{},Front End,,0|i000xz:,,High,,,,,,10207,ED-4,EPIC-04 — Shopping Cart,To Do,02/Oct/26 12:30 AM
+Cart Total and Item-Count Badge Are Incorrect for Multiple Products and Quantities Above 10,ED-93,10296,Bug,To Do,ED,EduShop-QA-Rahaf AlQura'an,software,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,,Highest,,,,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,02/Oct/26 12:22 AM,06/Oct/26 2:15 AM,06/Oct/26 2:14 AM,,,0,MANUAL,,"The cart displays incorrect aggregate values when it contains multiple products, including a line with more than ten units. Although individual line subtotals are calculated correctly, the displayed cart total does not equal the sum of all line subtotals, and the cart badge does not equal the sum of all product quantities.
+
+*Steps to Reproduce*
+
+# Add {{11}} units of a product priced at {{10.00}} with no discount.
+# Verify that its line subtotal is {{110.00}}.
+# Add another product with a known discounted unit price and quantity.
+# Calculate the expected subtotal for each product independently.
+# Add all line subtotals to calculate the expected cart total.
+# Add all line quantities to calculate the expected badge count.
+# Compare the expected values with the displayed cart total and badge.
+
+*Expected Result*
+The cart total should equal the sum of all line subtotals, and the cart badge should equal the total quantity across all product lines.
+
+*Actual Result*
+The displayed cart total and item-count badge did not match the calculated line subtotals and total quantities.",,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,,,,,,,,,EQ-27,,{},Front End,,0|i000xr:,,High,,,,,,10207,ED-4,EPIC-04 — Shopping Cart,To Do,02/Oct/26 12:22 AM
+ Cart allows updating product quantity beyond available stock,ED-91,10294,Bug,To Do,ED,EduShop-QA-Rahaf AlQura'an,software,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,,High,,,,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,02/Oct/26 12:17 AM,07/Oct/26 3:07 AM,08/Oct/26 9:55 PM,,,0,MANUAL,,"The cart accepts and saves a product quantity greater than the product’s current stock.
+
+*Steps to Reproduce:*
+
+# Add a product to the cart.
+# Open the cart and check the product’s current stock.
+# Set its quantity to current stock + 1.
+# Apply or save the update.
+
+*Expected Result:* The update is rejected, and the saved cart quantity does not exceed current stock.
+
+*Actual Result:* The update was accepted, and the saved cart quantity exceeded current stock.",,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,,,,,,,,,EQ-26,,{},Front End,,0|i000xb:,,High,,,,,,10207,ED-4,EPIC-04 — Shopping Cart,To Do,02/Oct/26 12:17 AM
+Product Can Be Added to Cart in a Quantity Greater Than Available Stock,ED-89,10292,Bug,To Do,ED,EduShop-QA-Rahaf AlQura'an,software,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,,High,,,,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,02/Oct/26 12:10 AM,07/Oct/26 2:58 AM,07/Oct/26 2:59 AM,,,0,MANUAL,,"The cart does not enforce the product’s available stock when adding an item. A shopper can add six units of a product even though only five units are available.
+
+*Steps to Reproduce*
+
+# Open *Product ID 1* with an available stock of {{5}}.
+# Set the requested quantity to {{3}}.
+# Select *Add to Cart*.
+# Add more quantity from the same product to 3 so the total is 6which is exceed the stock.
+# Open the cart and inspect the product quantity.
+
+*Expected Result*
+The addition should be blocked, a clear insufficient-stock message should be displayed, and the cart quantity should not exceed five units.
+
+*Actual Result*
+The addition was not blocked, and six units were added even though only five units were available.",,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,,,,,,,,,EQ-25,,{},Front End,,0|i000wv:,,High,,,,,,10207,ED-4,EPIC-04 — Shopping Cart,To Do,02/Oct/26 12:10 AM
+Category with Active Products Can Be Deleted Without Warning or Protection,ED-88,10291,Bug,To Do,ED,EduShop-QA-Rahaf AlQura'an,software,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,,High,,,,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,02/Oct/26 12:06 AM,06/Oct/26 1:32 AM,08/Oct/26 9:53 PM,,,0,MANUAL,,"
+The system allows an Admin to delete a category that still contains active products without displaying a warning or blocking the deletion. As a result, the assigned products become orphaned and are no longer correctly available through category filtering.
+
+*Steps to Reproduce*
+
+# Sign in as an Admin.
+# Open *Category Management*.
+# Select a category containing active products.
+# Choose *Delete*.
+# Confirm or complete the deletion if prompted.
+# Inspect the products previously assigned to the deleted category.
+# Test category filtering for those products.
+
+*Expected Result*
+The system should block the deletion or display a clear warning requiring the products to be reassigned. No active product should become orphaned from category filtering.
+
+*Actual Result*
+The category was deleted without protection, and its active products became incorrectly associated or silently orphaned from category filtering.",,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,,,,,,,,,EQ-21,,{},API,,0|i000wn:,,High,,,,,,10206,ED-3,EPIC-03 — Category Management,To Do,02/Oct/26 12:06 AM
+Product Edit Form Does Not Enforce Product Validation Rules,ED-83,10286,Bug,To Do,ED,EduShop-QA-Rahaf AlQura'an,software,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,,High,,,,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,01/Oct/26 11:57 PM,06/Oct/26 1:09 AM,08/Oct/26 9:45 PM,,,0,MANUAL,,"The product edit form allows invalid values to be saved. Negative stock, zero price, and discounts greater than 100 are not rejected, although the same values are correctly rejected during product creation.
+
+*Steps to Reproduce*
+
+# Sign in as an Admin.
+# Open an existing product for editing.
+# Set *Stock* to {{-1}}.
+# Submit the update.
+# Verify that the negative stock value is saved.
+# Edit the product again.
+# Set *Price* to {{0}} or *Discount* to {{101}}.
+# Submit the update.
+# Observe that the invalid value is not rejected.
+
+*Expected Result*
+The edit must be rejected. Product editing should enforce the same validation rules used during product creation:
+
+* Stock cannot be negative.
+* Price must be greater than zero.
+* Discount must be between 0 and 100.
+
+*Actual Result*
+The negative stock value was saved, and the edit form did not enforce the product-creation validation rules for invalid price or discount values.",,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,,,,,,,,,EQ-24,,{},Front End,,0|i000vj:,,High,,,,,,10205,ED-2,EPIC-02 — Product Catalog & Discovery,To Do,01/Oct/26 11:57 PM
+Removed Product Detail Page Does Not Show a Clean Not-Found State,ED-82,10285,Bug,To Do,ED,EduShop-QA-Rahaf AlQura'an,software,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,,High,,,,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,01/Oct/26 11:52 PM,06/Oct/26 1:03 AM,08/Oct/26 9:42 PM,,,0,MANUAL,,"When a user opens the former detail-page URL of a removed product, the application does not display a clean “Product Not Found” state. Instead, it displays an incorrect or broken product page.
+
+*Steps to Reproduce*
+
+# Identify a product that has been removed from the store.
+# Copy or retrieve the removed product’s previous detail-page URL.
+# Open the URL in the browser.
+# Observe the displayed page.
+
+*Expected Result*
+A clear “Product Not Found” message or a proper 404 state should be displayed without showing a broken product page.
+
+*Actual Result*
+The removed product did not display the expected clean not-found state.",,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,,,,,,,,,EQ-16,,{},Front End,,0|i000vb:,,High,,,,,,10205,ED-2,EPIC-02 — Product Catalog & Discovery,To Do,01/Oct/26 11:52 PM

@@ -1,0 +1,15 @@
+# Local credentials and Postman runtime data
+*.postman_environment.local.json
+.env
+.env.*
+
+# Office temporary files
+~$*.xlsx
+
+# OS/editor files
+.DS_Store
+Thumbs.db
+.vscode/
+
+# Source exports and context kept locally, outside the published portfolio
+local-only/
