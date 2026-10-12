@@ -1,0 +1,301 @@
+﻿Summary,Issue key,Issue id,Issue Type,Status,Project key,Project name,Project type,Project lead,Project lead id,Project description,Priority,Resolution,Assignee,Assignee Id,Reporter,Reporter Id,Creator,Creator Id,Created,Updated,Last Viewed,Resolved,Due date,Votes,Labels,Labels,Description,Environment,Watchers,Watchers Id,Original estimate,Remaining Estimate,Time Spent,Work Ratio,Σ Original Estimate,Σ Remaining Estimate,Σ Time Spent,Security Level,Inward issue link (Relates),Outward issue link (Relates),Custom field (Development),Custom field (Issue Type),Custom field (Issue color),Custom field (Rank),Custom field (Severity),Custom field (Severity),Custom field (Start date),Custom field (Story point estimate),Custom field (Team),Custom field (Test Status),Custom field (Vulnerability),Parent,Parent key,Parent summary,Status category,Status category changed
+Session Is Not Automatically Renewed After Access Token Expiry,ED-128,10331,Bug,To Do,ED,EduShop-QA-Rahaf AlQura'an,software,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,,Medium,,,,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,06/Oct/26 10:42 PM,08/Oct/26 10:04 PM,08/Oct/26 10:22 PM,,,0,API,,"When the 60-minute access token expires, the application does not automatically renew the user session using the valid refresh token. When the user attempts to access the Cart, the application redirects them directly to the Login page.
+
+*Steps to Reproduce*
+
+# Sign in with a valid customer account.
+# Remain signed in until the 60-minute access token expires.
+# Click the Cart icon or open the Cart page.
+# Observe the application behavior.
+
+*Expected Result*
+
+The application should automatically renew the session in the background using the refresh token. The Cart page should open successfully, and the user should remain signed in.
+
+*Actual Result*
+
+After the access token expired, clicking the Cart redirected the user directly to the Login page. The session was not renewed automatically.",,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,,,,,,,,,ED-12,,{},Front End,,0|i000v7:,,High,,,,,,10204,ED-1,EPIC-01 — Authentication & Account Access,To Do,06/Oct/26 10:42 PM
+API-143 — Dashboard low-stock count differs from product listing,ED-124,10327,Bug,To Do,ED,EduShop-QA-Rahaf AlQura'an,software,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,,Medium,,,,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,05/Oct/26 8:07 PM,06/Oct/26 2:59 PM,09/Oct/26 11:16 PM,,,0,API,bug-014,"*Description*
+
+The dashboard low-stock count does not match the product listing count.
+
+*Related API/Test*
+
+API-143 — GET /api/admin/dashboard and GET /api/product?pageSize=100
+
+*Steps to Reproduce*
+
+# Run the admin dashboard and record the low-stock product count.
+# Request {{GET /api/product?pageSize=100}}.
+# Count active products with stock <= 10.
+# Compare both counts.
+
+*Expected Result*
+
+The dashboard low-stock count equals the product listing count.
+
+*Actual Result*
+
+The dashboard returns 20 low-stock products, while the product listing contains 23.",,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,,,,,,,,,,,{},API,,0|i0014n:,,Medium,,,,,,10211,ED-8,EPIC-08 — Admin Dashboard & Reporting,To Do,05/Oct/26 8:07 PM
+API-050 — Product creation accepts omitted Stock,ED-123,10326,Bug,To Do,ED,EduShop-QA-Rahaf AlQura'an,software,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,,Medium,,,,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,05/Oct/26 8:06 PM,06/Oct/26 2:59 PM,06/Oct/26 2:59 PM,,,0,API,bug-013,"*Description*
+
+Product creation accepts a request with Stock omitted.
+
+*Related API/Test*
+
+API-050 — POST /api/product
+
+*Steps to Reproduce*
+
+# As Admin, create a product without providing Stock.
+
+*Expected Result*
+
+400 Bad Request and no product is created.
+
+*Actual Result*
+
+201 Created and the product is created with stock 0.",,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,,,,,,,,,,,{},API,,0|i0014f:,,High,,,,,,10205,ED-2,EPIC-02 — Product Catalog & Discovery,To Do,05/Oct/26 8:06 PM
+API-124 — Single-character review comment is accepted,ED-122,10325,Bug,To Do,ED,EduShop-QA-Rahaf AlQura'an,software,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,,Medium,,,,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,05/Oct/26 8:06 PM,06/Oct/26 2:59 PM,06/Oct/26 2:59 PM,,,0,API,bug-012,"*Description*
+
+Review validation accepts a comment shorter than the minimum length.
+
+*Related API/Test*
+
+API-124 — POST /api/review
+
+*Steps to Reproduce*
+
+# Submit a product review with the comment {{""A""}}.
+
+*Expected Result*
+
+A 4xx minimum-length validation error is returned and no review is saved.
+
+*Actual Result*
+
+200 OK and the review is created.",,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,,,,,,,,,,,{},API,,0|i00147:,,Low,,,,,,10209,ED-6,EPIC-06 — Product Reviews & Ratings,To Do,05/Oct/26 8:06 PM
+API-012 — Deleted-user refresh returns wrong documented message,ED-121,10324,Bug,To Do,ED,EduShop-QA-Rahaf AlQura'an,software,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,,Medium,,,,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,05/Oct/26 8:06 PM,06/Oct/26 2:59 PM,09/Oct/26 5:24 PM,,,0,API,bug-011,"*Description*
+
+Refresh requests for deleted users return the wrong documented error message.
+
+*Related API/Test*
+
+API-012 — POST /api/auth/refresh
+
+*Steps to Reproduce*
+
+# Use refresh tokens belonging to a deleted user.
+# Send the refresh request.
+
+*Expected Result*
+
+401 Unauthorized with the documented message: User not found.
+
+*Actual Result*
+
+401 Unauthorized with the message: Invalid or expired refresh token.",,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,,,,,,,,,,,{},API,,0|i0013z:,,Low,,,,,,10204,ED-1,EPIC-01 — Authentication & Account Access,To Do,05/Oct/26 8:06 PM
+API-118 — Customer can review without delivered purchase,ED-120,10323,Bug,To Do,ED,EduShop-QA-Rahaf AlQura'an,software,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,,Medium,,,,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,05/Oct/26 8:06 PM,06/Oct/26 2:59 PM,06/Oct/26 2:59 PM,,,0,API,bug-010,"*Description*
+
+Customers can submit reviews without a delivered purchase.
+
+*Related API/Test*
+
+API-118 — POST /api/review
+
+*Steps to Reproduce*
+
+# Use a customer without a delivered purchase.
+# Submit a product review as that customer.
+
+*Expected Result*
+
+A 4xx validation response is returned and no review is saved.
+
+*Actual Result*
+
+200 OK and the review is created.",,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,,,,,,,,,,,{},API,,0|i0013r:,,High,,,,,,10209,ED-6,EPIC-06 — Product Reviews & Ratings,To Do,05/Oct/26 8:06 PM
+API-107 — Four-product order skips Processing and becomes Shipped,ED-119,10322,Bug,To Do,ED,EduShop-QA-Rahaf AlQura'an,software,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,,Medium,,,,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,05/Oct/26 8:06 PM,06/Oct/26 2:59 PM,06/Oct/26 2:59 PM,,,0,API,bug-009,"*Description*
+
+Updating a four-product order to Processing results in the wrong saved status.
+
+*Related API/Test*
+
+API-107 — PUT /api/order/{orderId}/status
+
+*Steps to Reproduce*
+
+# Create a four-product order with status Pending.
+# As Admin, set the order status to Processing.
+# Retrieve the order.
+
+*Expected Result*
+
+The saved order status is Processing.
+
+*Actual Result*
+
+The saved order status is Shipped.",,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,,,,,,,,,,,{},API,,0|i0013j:,,Medium,,,,,,10208,ED-5,EPIC-05 — Checkout & Orders,To Do,05/Oct/26 8:06 PM
+API-080 — Cart update allows quantity above stock,ED-118,10321,Bug,To Do,ED,EduShop-QA-Rahaf AlQura'an,software,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,,Medium,,,,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,05/Oct/26 8:06 PM,06/Oct/26 2:59 PM,06/Oct/26 2:59 PM,,,0,API,bug-008,"*Description*
+
+Cart quantity update accepts a quantity greater than available stock.
+
+*Related API/Test*
+
+API-080 — PUT /api/cart/items/{itemId}
+
+*Steps to Reproduce*
+
+# Use an existing cart line for a product with stock 50.
+# Update the cart line quantity to 51.
+
+*Expected Result*
+
+The update is rejected because the requested quantity exceeds stock.
+
+*Actual Result*
+
+200 OK and quantity 51 is saved.",,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,,,,,,,,,,,{},API,,0|i0013b:,,High,,,,,,10207,ED-4,EPIC-04 — Shopping Cart,To Do,05/Oct/26 8:06 PM
+API-076 — Cart subtotal ignores discount,ED-117,10320,Bug,To Do,ED,EduShop-QA-Rahaf AlQura'an,software,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,,Medium,,,,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,05/Oct/26 8:06 PM,06/Oct/26 2:58 PM,06/Oct/26 2:58 PM,,,0,API,bug-007,"*Description*
+
+Cart subtotal calculation ignores the product discount.
+
+*Related API/Test*
+
+API-076 — GET /api/cart
+
+*Steps to Reproduce*
+
+# Use a product priced at 25.50 with a 10% discount.
+# Add quantity 11 to the cart.
+# Read the cart subtotal.
+
+*Expected Result*
+
+Subtotal equals the discounted unit price multiplied by quantity: 252.45.
+
+*Actual Result*
+
+Subtotal is 229.50, so the discount is ignored.",,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,,,,,,,,,,,{},API,,0|i00133:,,Medium,,,,,,10207,ED-4,EPIC-04 — Shopping Cart,To Do,05/Oct/26 8:06 PM
+API-075 — Cart add allows combined quantity above stock,ED-116,10319,Bug,To Do,ED,EduShop-QA-Rahaf AlQura'an,software,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,,Medium,,,,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,05/Oct/26 8:06 PM,06/Oct/26 2:58 PM,06/Oct/26 2:58 PM,,,0,API,bug-006,"*Description*
+
+Adding cart quantity above available stock is accepted.
+
+*Related API/Test*
+
+API-075 — POST /api/cart/items
+
+*Steps to Reproduce*
+
+# Use a product with stock 50 and cart quantity 3.
+# Add 48 more units of the same product.
+
+*Expected Result*
+
+400 Bad Request for insufficient stock and the cart quantity remains 3.
+
+*Actual Result*
+
+200 OK and the cart quantity becomes 51.",,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,,,,,,,,,,,{},API,,0|i0012v:,,High,,,,,,10207,ED-4,EPIC-04 — Shopping Cart,To Do,05/Oct/26 8:06 PM
+API-068 — Populated category can be deleted silently,ED-115,10318,Bug,To Do,ED,EduShop-QA-Rahaf AlQura'an,software,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,,Medium,,,,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,05/Oct/26 8:06 PM,06/Oct/26 2:58 PM,06/Oct/26 2:58 PM,,,0,API,bug-005,"*Description*
+
+A category containing an active product can be deleted without protection.
+
+*Related API/Test*
+
+API-068 — DELETE /api/category/{categoryId}
+
+*Steps to Reproduce*
+
+# Create a category containing an active product.
+# As Admin, delete the populated category.
+
+*Expected Result*
+
+Deletion is blocked or a warning is returned.
+
+*Actual Result*
+
+200 OK and the category is deleted successfully.",,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,,,,,,,,,,,{},API,,0|i0012n:,,High,,,,,,10206,ED-3,EPIC-03 — Category Management,To Do,05/Oct/26 8:06 PM
+API-063 — Category rename accepts another category name,ED-114,10317,Bug,To Do,ED,EduShop-QA-Rahaf AlQura'an,software,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,,Medium,,,,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,05/Oct/26 8:06 PM,06/Oct/26 2:58 PM,06/Oct/26 2:58 PM,,,0,API,bug-004,"*Description*
+
+Category rename does not prevent duplicate category names.
+
+*Related API/Test*
+
+API-063 — PUT /api/category/{categoryId}
+
+*Steps to Reproduce*
+
+# Create two categories.
+# Rename one category to the other category's existing name.
+
+*Expected Result*
+
+The duplicate category name is rejected.
+
+*Actual Result*
+
+200 OK and the rename is accepted.",,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,,,,,,,,,,,{},API,,0|i0012f:,,Medium,,,,,,10206,ED-3,EPIC-03 — Category Management,To Do,05/Oct/26 8:06 PM
+API-034 — Product update accepts negative stock,ED-113,10316,Bug,To Do,ED,EduShop-QA-Rahaf AlQura'an,software,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,,Medium,,,,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,05/Oct/26 8:06 PM,06/Oct/26 2:56 PM,06/Oct/26 2:56 PM,,,0,API,bug-003,"*Description*
+
+Product update accepts an invalid negative stock value instead of rejecting it.
+
+*Related API/Test*
+
+API-034 — PUT /api/product/{productId}
+
+*Steps to Reproduce*
+
+# As Admin, update an isolated product.
+# Set {{stock=-1}}.
+# Submit the update.
+
+*Expected Result*
+
+400 Bad Request and the negative stock value is rejected.
+
+*Actual Result*
+
+200 OK and stock {{-1}} is saved.",,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,,,,,,,,,,,{},API,,0|i00127:,,High,,,,,,10205,ED-2,EPIC-02 — Product Catalog & Discovery,To Do,05/Oct/26 8:06 PM
+API-021 — Category filter is case sensitive,ED-112,10315,Bug,To Do,ED,EduShop-QA-Rahaf AlQura'an,software,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,,Medium,,,,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,05/Oct/26 8:06 PM,06/Oct/26 2:53 PM,06/Oct/26 2:53 PM,,,0,API,bug-002,"*Description*
+
+Category filtering is case-sensitive, causing valid category values to return inconsistent results.
+
+*Related API/Test*
+
+API-021 — GET /api/product
+
+*Steps to Reproduce*
+
+# Send {{GET /api/product?category=Electronics}}.
+# Repeat using {{category=electronics}} and {{category=ELECTRONICS}}.
+# Compare the returned product sets.
+
+*Expected Result*
+
+All casing variations return the same product set.
+
+*Actual Result*
+
+Lowercase and uppercase values return empty product lists.",,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,,,,,,,,,,,{},API,,0|i0011z:,,Medium,,,,,,10205,ED-2,EPIC-02 — Product Catalog & Discovery,To Do,05/Oct/26 8:06 PM
+API-009 — Malformed access token returns 400 instead of 401,ED-111,10314,Bug,To Do,ED,EduShop-QA-Rahaf AlQura'an,software,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,,Medium,,,,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,05/Oct/26 8:06 PM,06/Oct/26 2:52 PM,06/Oct/26 2:52 PM,,,0,API,bug-001,"*Description*
+
+Malformed refresh access token is handled with the wrong status code.
+
+*Related API/Test*
+
+API-009 — POST /api/auth/refresh
+
+*Steps to Reproduce*
+
+# Obtain a valid refresh token.
+# Send {{POST /api/auth/refresh}} with {{accessToken=""malformed""}}.
+
+*Expected Result*
+
+401 Unauthorized with an invalid access token message.
+
+*Actual Result*
+
+400 Bad Request with JWT parsing error (IDX12741).",,Rahaf AlQura'an,712020:7c6a22a3-46f0-49b5-af47-06f5336bba73,,,,,,,,,,,{},API,,0|i0011r:,,Medium,,,,,,10204,ED-1,EPIC-01 — Authentication & Account Access,To Do,05/Oct/26 8:06 PM
